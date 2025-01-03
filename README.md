@@ -16,12 +16,10 @@
 
 ## Tech Stack
 
-- **Frontend**: React.js, Next.js, Tailwind CSS
+- **Frontend**: React.js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Payment Gateway**: Stripe API
-- **Hosting**: Vercel/Heroku for deployment
-
 ---
 
 ## Installation and Setup
@@ -48,7 +46,17 @@ cd ../frontend
 npm install
 ```
 
-### 3. Start the Development Servers
+### 3. Environment Variables
+```bash
+Create a .env file in the backend directory with the following variables:
+
+makefile
+Copy code
+MONGO_URI=your-mongodb-connection-string
+STRIPE_SECRET_KEY=your-stripe-secret-key
+```
+
+### 4. Start the Development Servers
 ```bash
 Run the servers for admin, backend, and frontend:
 
@@ -67,7 +75,7 @@ cd admin
 npm run dev
 ```
 
-### 4. Access the Application
+### 5. Access the Application
 ```bash
 Frontend: Open http://localhost:5174 in your browser.
 Admin Panel: Open http://localhost:5173.
