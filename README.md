@@ -16,5 +16,5 @@ pnpm dev
 bun dev
 ```
 
-Open http://localhost:5173/ for admin panel with your browser to see the result.
+Open http://localhost:5173/ for admin panel with your browser to see the result.\n
 Open http://localhost:5174/ for user panel with your browser to see the result.
