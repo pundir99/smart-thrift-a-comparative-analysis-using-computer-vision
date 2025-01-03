@@ -67,7 +67,7 @@ cd admin
 npm run dev
 ```
 
-### 5. Access the Application
+### 4. Access the Application
 ```bash
 Frontend: Open http://localhost:5174 in your browser.
 Admin Panel: Open http://localhost:5173.
