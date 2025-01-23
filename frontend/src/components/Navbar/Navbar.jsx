@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Navbar.css'
 import {assets} from '../../assets/assets'
 import {Link, useNavigate} from 'react-router-dom'
@@ -9,12 +9,19 @@ const Navbar = ({setShowLogin}) => {
     const navigate = useNavigate();
 
     const [menu, setMenu] = useState("Home");
+    const [data, setData] = useState("")
     const {getTotalCartAmount, token, setToken} = useContext(StoreContext)
 
     const Logout = () => {
       localStorage.removeItem("token");
       setToken("");
       navigate("/");
+    }
+
+    const handlechange = (e) => {
+      let name = e.target.name;
+      let value = e.target.value;
+      setData(data =>({...data,[name]: value}));
     }
 
   return (
@@ -27,6 +34,7 @@ const Navbar = ({setShowLogin}) => {
         <a href='#footer' onClick={()=> {setMenu("Contact Us")}} className={menu === "Contact Us" ? "active" : ""}>Contact Us</a>
       </ul>
       <div className="navbar-right">
+        <input type="text" onChange={handlechange} />
         <img src={assets.search_icon} alt="" />
         <div className="navbar-search-icon">
         <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
