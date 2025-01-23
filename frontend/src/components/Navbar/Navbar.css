@@ -20,11 +20,23 @@
 .navbar .navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 25px;
+}
+
+.navbar-right .search-icon{
+    margin-left: -16px;
+}
+
+.navbar-right .input-search-icon{
+    outline: none;
+    border: 1px solid grey;
+    padding: 6px 10px;
+    border-radius: 13px;
+    font-size: 14px;
 }
 
 .navbar .navbar-right img {
-    width: 30px;
+    width: 27px;
 }
 
 .navbar .navbar-search-icon {
