@@ -2,14 +2,27 @@ import basket_icon from './basket_icon.png'
 import logo from './logo.png'
 import header_img from './header_img.png'
 import search_icon from './search_icon.png'
-import menu_1 from './Shorts.png'
-import menu_2 from './women t-shirt.png'
-import menu_3 from './Men shirt.png'
-import menu_4 from './polo.png'
-import menu_5 from './high neck.png'
-import menu_6 from './jacket.png'
-import menu_7 from './jogger.png'
-import menu_8 from './hoodies.png'
+// import menu_1 from './Shorts.png'
+// import menu_2 from './women t-shirt.png'
+// import menu_3 from './Men shirt.png'
+// import menu_4 from './polo.png'
+// import menu_5 from './high neck.png'
+// import menu_6 from './jacket.png'
+// import menu_7 from './jogger.png'
+// import menu_8 from './hoodies.png'
+import menu_1 from './Blazer.png'
+import menu_2 from './Celana Panjang.png'
+import menu_3 from './Celana Pendek.png'
+import menu_4 from './Gaun.png'
+import menu_5 from './Hoodie.png'
+import menu_6 from './Jacket.png'
+import menu_7 from './Jacket Denim.png'
+import menu_8 from './Jacket Olahraga.png'
+import menu_9 from './Jeans.png'
+import menu_10 from './Kaos.png'
+import menu_11 from './Kemaja.png'
+import menu_12 from './Polo.png'
+import menu_13 from './Sweater.png'
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -84,37 +97,58 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Men Shorts",
+        menu_name: "Blazer",
         menu_image: menu_1
     },
     {
-        menu_name: "Women T-Shirt",
+        menu_name: "Celana Panjang",
         menu_image: menu_2
     },
     {
-        menu_name: "Men shirt",
+        menu_name: "Celana Pendek",
         menu_image: menu_3
     },
     {
-        menu_name: "Polo T-shirt",
+        menu_name: "Gaun",
         menu_image: menu_4
     },
     {
-        menu_name: "High Neck",
+        menu_name: "Hoodie",
         menu_image: menu_5
     },
     {
-        menu_name: "Jackets",
+        menu_name: "Jacket",
         menu_image: menu_6
     },
     {
-        menu_name: "Joggers",
+        menu_name: "Jacket Denim",
         menu_image: menu_7
     },
     {
-        menu_name: "Hoodies",
+        menu_name: "Jacket Olahraga",
         menu_image: menu_8
-    }]
+    },
+    {
+        menu_name: "Jeans",
+        menu_image: menu_9
+    },
+    {
+        menu_name: "Kaos",
+        menu_image: menu_10
+    },
+    {
+        menu_name: "Kemeja",
+        menu_image: menu_11
+    },
+    {
+        menu_name: "Polo",
+        menu_image: menu_12
+    },
+    {
+        menu_name: "Sweater",
+        menu_image: menu_13
+    }
+]
 
 export const food_list = [
     {
