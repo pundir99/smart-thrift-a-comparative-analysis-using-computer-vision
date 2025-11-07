@@ -6,10 +6,26 @@ import { StoreContext } from '../../context/ContextStore';
 const FoodItem = ({id, name, price, image, description}) => {
   const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext)
 
+  const resolveImageSource = (img) => {
+    if (!img) {
+      return ''
+    }
+
+    const imageString = img.toString()
+
+    if (imageString.startsWith('http') || imageString.startsWith('data:') || imageString.startsWith('blob:') || imageString.startsWith('/')) {
+      return imageString
+    }
+
+    return `${url}/images/${imageString}`
+  }
+
+  const imageSrc = resolveImageSource(image)
+
   return (
     <div className='food-item'>
       <div className="food-item-img-container">
-        <img className='food-item-image' src={url + "/images/" + image} alt="" />
+        <img className='food-item-image' src={imageSrc} alt={name} />
         { !cartItems[id]
             ? <img className='add' onClick={()=> addToCart(id)} src={assets.add_icon_white} alt="" />
             : <div className='food-item-counter'>
