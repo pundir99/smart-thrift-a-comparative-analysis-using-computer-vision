@@ -35,7 +35,7 @@ const Add = ({url}) => {
         "name" : "",
         "description" : "",
         "price" : "",
-        "category" : "salad",
+        "category" : "",
       })
       setImage(false);
       toast.success(response.data.message);
