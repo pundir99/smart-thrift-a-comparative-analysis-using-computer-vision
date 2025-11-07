@@ -1,0 +1,68 @@
+.gender-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.gender-section h2 {
+    font-size: max(2.5vw, 24px);
+    font-weight: 600;
+    color: #272727;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gender-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.gender-toggle-button {
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    background: #f9f9f9;
+    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gender-toggle-button:hover {
+    background: #ececec;
+}
+
+.gender-toggle-button.active {
+    background: #ff4c24;
+    color: white;
+    border-color: #ff4c24;
+}
+
+.gender-category {
+    margin-top: 30px;
+}
+
+.gender-category-title {
+    font-size: max(1.6vw, 18px);
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+.gender-category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    row-gap: 50px;
+}
+
+.no-items {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    padding: 40px 0;
+}
+
