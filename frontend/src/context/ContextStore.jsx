@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useMemo } from "react";
+import { food_list as assetFoodList } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 
@@ -8,7 +9,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = "http://localhost:4000";
     const [token, setToken] = useState("")
-    const [food_list, setFoodList] = useState([])
+    const [apiFoodList, setApiFoodList] = useState([])
 
     const addToCart = async(itemId) =>{
         if(!cartItems[itemId]){
@@ -29,12 +30,35 @@ const StoreContextProvider = (props) => {
         }
     }
     
+    const combinedFoodList = useMemo(() => {
+        const itemsByKey = new Map();
+
+        assetFoodList.forEach((item) => {
+            const key = item._id || item.name;
+            if (!itemsByKey.has(key)) {
+                itemsByKey.set(key, { ...item });
+            }
+        });
+
+        apiFoodList.forEach((item) => {
+            const key = item._id || item.name;
+            itemsByKey.set(key, item);
+        });
+
+        return Array.from(itemsByKey.values());
+    }, [apiFoodList]);
+
     const getTotalCartAmount = () =>{
         let totalAmount = 0;
         for(const item in cartItems){   
             if(cartItems[item] > 0){
-                let itemInfo = food_list.find((product)=> product._id===item);
-                totalAmount += itemInfo.price*cartItems[item];
+                let itemInfo = combinedFoodList.find((product)=> product._id===item || product.name === item);
+
+                if(!itemInfo){
+                    continue;
+                }
+
+                totalAmount += Number(itemInfo.price || 0)*cartItems[item];
             }
         }
         return totalAmount;
@@ -43,7 +67,7 @@ const StoreContextProvider = (props) => {
     // fetching the food list from the databse and not from the assets folder.
     const fetchFoodList = async () => {
         const response = await axios.get(url+"/api/food/list");
-        setFoodList(response.data.data);
+        setApiFoodList(response.data.data);
     }
 
     const loadCartData = async (token) => {
@@ -63,7 +87,7 @@ const StoreContextProvider = (props) => {
     },[])
 
     const ContextValue = {
-        food_list,
+        food_list: combinedFoodList,
         cartItems,
         setCartItems,
         addToCart,
