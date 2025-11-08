@@ -19,7 +19,6 @@ const genderCategories = {
     { name: 'Blazer', aliases: ['blazer'] },
     { name: 'Kemeja', aliases: ['kemeja', 'kemaja', 'shirt', 'men shirt'] },
     { name: 'Polo', aliases: ['polo'] },
-    { name: 'Celana Panjang', aliases: ['celana panjang', 'trousers', 'pants'] },
     { name: 'Celana Pendek', aliases: ['celana pendek', 'shorts'] },
     { name: 'Jeans', aliases: ['jeans', 'denim'] },
     { name: 'Kaos', aliases: ['kaos', 't-shirt', 'tee'] },
@@ -45,7 +44,6 @@ const genderCategories = {
   ],
   KIDS: [
     { name: 'Kaos', aliases: ['kaos', 't-shirt', 'tee'] },
-    { name: 'Celana Panjang', aliases: ['celana panjang', 'pants', 'trousers'] },
     { name: 'Celana Pendek', aliases: ['celana pendek', 'shorts'] },
     { name: 'Jeans', aliases: ['jeans', 'denim'] },
     { name: 'Hoodie', aliases: ['hoodie', 'hoodies'] },
