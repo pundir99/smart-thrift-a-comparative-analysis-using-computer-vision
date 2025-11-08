@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-content-left">
             <img src={assets.logo} alt="" />
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, sapiente. Id, nobis est. A tempore ab corrupti est aut alias aliquid reiciendis inventore corporis nobis, cupiditate et perspiciatis repudiandae at animi temporibus totam velit labore laborum fugiat pariatur! Aut sed inventore corporis quo cupiditate consequatur sunt non ipsa? Veritatis, nemo.</p>
+            <p>Thrift Threads is your go-to online destination for stylish, affordable, and sustainable fashion. We curate a unique collection of pre-loved clothing, giving quality pieces a second life while helping you express your individuality. Whether you’re hunting for vintage gems, trendy finds, or timeless wardrobe staples, our easy-to-use e-commerce platform makes it simple to shop sustainably and look great doing it. Shop smart, save money, and join the movement toward eco-friendly fashion!</p>
             <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.twitter_icon} alt="" />
