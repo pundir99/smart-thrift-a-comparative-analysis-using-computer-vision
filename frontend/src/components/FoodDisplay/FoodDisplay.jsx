@@ -18,9 +18,10 @@ const FoodDisplay = ({ category }) => {
 
   const filteredItems = food_list.filter((item) => {
     const itemCategory = normalizeCategory(item.category)
+    const itemName = normalizeCategory(item.name)
 
     if (normalizedSearch) {
-      return itemCategory.includes(normalizedSearch)
+      return itemCategory.includes(normalizedSearch) || itemName.includes(normalizedSearch)
     }
 
     if (!selectedCategory || selectedCategory === 'all') {
