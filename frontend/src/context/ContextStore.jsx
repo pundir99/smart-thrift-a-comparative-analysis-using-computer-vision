@@ -10,6 +10,7 @@ const StoreContextProvider = (props) => {
     const url = "http://localhost:4000";
     const [token, setToken] = useState("")
     const [apiFoodList, setApiFoodList] = useState([])
+    const [searchQuery, setSearchQuery] = useState("")
 
     const addToCart = async(itemId) =>{
         if(!cartItems[itemId]){
@@ -95,7 +96,9 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        searchQuery,
+        setSearchQuery
     }
 
     return(

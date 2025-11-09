@@ -12,30 +12,45 @@ const normalizeCategory = (value) => {
 }
 
 const FoodDisplay = ({ category }) => {
-  const { food_list } = useContext(StoreContext)
+  const { food_list, searchQuery } = useContext(StoreContext)
   const selectedCategory = normalizeCategory(category)
+  const normalizedSearch = normalizeCategory(searchQuery)
+
+  const filteredItems = food_list.filter((item) => {
+    const itemCategory = normalizeCategory(item.category)
+
+    if (normalizedSearch) {
+      return itemCategory.includes(normalizedSearch)
+    }
+
+    if (!selectedCategory || selectedCategory === 'all') {
+      return true
+    }
+
+    return itemCategory === selectedCategory
+  })
 
   return (
     <div className='food-display' id='food-display'>
       <h2>Top clothes near you</h2>
       <div className='food-display-list'>
-        {food_list.map((item, index) => {
-          const itemCategory = normalizeCategory(item.category)
-
-          if (!selectedCategory || selectedCategory === 'all' || itemCategory === selectedCategory) {
-            return (
-              <FoodItem
-                key={index}
-                id={item._id}
-                name={item.name}
-                price={item.price}
-                image={item.image}
-                description={item.description}
-              />
-            )
-          }
-          return null
+        {filteredItems.map((item, index) => {
+          return (
+            <FoodItem
+              key={index}
+              id={item._id}
+              name={item.name}
+              price={item.price}
+              image={item.image}
+              description={item.description}
+            />
+          )
         })}
+        {filteredItems.length === 0 && (
+          <div className='food-display-empty'>
+            <p>No clothes found for your search.</p>
+          </div>
+        )}
       </div>
     </div>
   )
