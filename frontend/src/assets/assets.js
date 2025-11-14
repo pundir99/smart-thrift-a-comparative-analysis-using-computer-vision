@@ -161,13 +161,13 @@ export const menu_list = [
     }
 ]
 
-export const food_list = [
+export const item_list = [
     {
         _id: "1",
         name: "Blazer1",
         image: blazer1,
         price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Crimson pinstriped blazer with a sleek mandarin collar and tailored fit, blending boldness with business elegance.",
         category: "Blazer"
     },
     {
@@ -175,70 +175,70 @@ export const food_list = [
         name: "Blazer2",
         image: blazer2,
         price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Lavender longline blazer-coat with a single button and roomy patch pockets.",
         category: "Blazer"
     }, {
         _id: "3",
         name: "Blazer3",
         image: blazer3,
         price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Kids’ tan check blazer with notch lapels, two buttons, and piped flap pockets.",
         category: "Blazer"
     }, {
         _id: "4",
         name: "Blazer4",
         image: blazer4,
         price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Black cropped blazer with puff short sleeves and a front tie, trimmed with a light hem.",
         category: "Blazer"
     }, {
         _id: "5",
         name: "Blazer5",
         image: blazer5,
         price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Khaki denim-style blazer with four patch pockets and rivet details for laid-back structure.",
         category: "Blazer"
     }, {
         _id: "6",
         name: "Blazer6",
         image: blazer6,
         price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Slate utility jacket with a cape overlay, rounded collar, and multiple zip cargo pockets.",
         category: "Blazer"
     }, {
         _id: "7",
         name: "Blazer7",
         image: blazer7,
         price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Taupe casual blazer with three buttons and oversized patch pockets in a softly crinkled cotton.",
         category: "Blazer"
     }, {
         _id: "8",
         name: "Blazer8",
         image: blazer8,
         price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Royal-blue peplum blazer featuring a scalloped neckline and black contrast bands at the waist.",
         category: "Blazer"
     }, {
         _id: "9",
         name: "Blazer9",
         image: blazer9,
         price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Olive double-breasted blazer with statement metal buttons and lightly structured shoulders.",
         category: "Blazer"
     }, {
         _id: "10",
         name: "Blazer10",
         image: blazer10,
         price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Charcoal tweed, three-button blazer with a fitted waist and classic notch lapels.",
         category: "Blazer"
     }, {
         _id: "11",
         name: "Blazer11",
         image: blazer11,
         price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "Cropped ivory blazer with a curved hem and zipper closure, finished with a satin-trimmed lapel.",
         category: "Blazer"
     }
 ]

@@ -1,8 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react'
 import './GenderSection.css'
-import FoodItem from '../FoodItem/FoodItem'
+import ItemItem from '../ItemItem/ItemItem'
 import { StoreContext } from '../../context/ContextStore'
-import { food_list as assetFoodList } from '../../assets/assets'
 
 const normalizeCategory = (value) => {
   if (value === undefined || value === null) {
@@ -53,27 +52,16 @@ const genderCategories = {
 }
 
 const GenderSection = () => {
-  const { food_list: apiFoodList } = useContext(StoreContext)
+  const { item_list: apiItemList } = useContext(StoreContext)
   const [activeGender, setActiveGender] = useState(genders[0])
   const categories = genderCategories[activeGender] || []
 
-  const combinedFoodList = useMemo(() => {
-    const itemsByKey = new Map()
-
-    assetFoodList.forEach((item) => {
-      const key = item._id || item.name
-      if (!itemsByKey.has(key)) {
-        itemsByKey.set(key, { ...item })
-      }
-    })
-
-    apiFoodList.forEach((item) => {
-      const key = item._id || item.name
-      itemsByKey.set(key, item)
-    })
-
-    return Array.from(itemsByKey.values())
-  }, [apiFoodList])
+  const availableItems = useMemo(() => {
+    if (!Array.isArray(apiItemList)) {
+      return []
+    }
+    return apiItemList
+  }, [apiItemList])
 
   const itemsByCategory = useMemo(() => {
     const groupedItems = categories.reduce((acc, category) => {
@@ -81,7 +69,7 @@ const GenderSection = () => {
       return acc
     }, {})
 
-    combinedFoodList.forEach((item) => {
+    availableItems.forEach((item) => {
       const normalizedItemCategory = normalizeCategory(item.category)
 
       categories.forEach((category) => {
@@ -92,7 +80,7 @@ const GenderSection = () => {
     })
 
     return groupedItems
-  }, [categories, combinedFoodList])
+  }, [categories, availableItems])
 
   const hasItems = Object.values(itemsByCategory).some((items) => items.length > 0)
 
@@ -124,7 +112,7 @@ const GenderSection = () => {
               <h3 className='gender-category-title'>{category.name}</h3>
               <div className='gender-category-list'>
                 {items.map((item) => (
-                  <FoodItem
+                  <ItemItem
                     key={item._id}
                     id={item._id}
                     name={item.name}

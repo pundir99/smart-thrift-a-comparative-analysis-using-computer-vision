@@ -7,7 +7,7 @@ const Cart = () => {
 
   const navigate = useNavigate()
 
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext)
+  const { cartItems, item_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext)
 
   return (
     <div className="cart">
@@ -22,7 +22,7 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
+        {item_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div>

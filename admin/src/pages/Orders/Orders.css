@@ -10,7 +10,7 @@
     color: #505050;
 }
 
-.order-item-food, .order-item-name{
+.order-item-item, .order-item-name{
     font-weight: 600;
     /* margin-bottom: 5px; */
 }

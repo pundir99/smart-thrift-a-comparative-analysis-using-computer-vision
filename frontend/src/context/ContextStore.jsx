@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createContext, useState, useEffect, useMemo } from "react";
-import { food_list as assetFoodList } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 
@@ -9,7 +8,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = "http://localhost:4000";
     const [token, setToken] = useState("")
-    const [apiFoodList, setApiFoodList] = useState([])
+    const [apiItemList, setApiItemList] = useState([])
     const [searchQuery, setSearchQuery] = useState("")
 
     const addToCart = async(itemId) =>{
@@ -31,29 +30,18 @@ const StoreContextProvider = (props) => {
         }
     }
     
-    const combinedFoodList = useMemo(() => {
-        const itemsByKey = new Map();
-
-        assetFoodList.forEach((item) => {
-            const key = item._id || item.name;
-            if (!itemsByKey.has(key)) {
-                itemsByKey.set(key, { ...item });
-            }
-        });
-
-        apiFoodList.forEach((item) => {
-            const key = item._id || item.name;
-            itemsByKey.set(key, item);
-        });
-
-        return Array.from(itemsByKey.values());
-    }, [apiFoodList]);
+    const combinedItemList = useMemo(() => {
+        if (!Array.isArray(apiItemList)) {
+            return [];
+        }
+        return apiItemList;
+    }, [apiItemList]);
 
     const getTotalCartAmount = () =>{
         let totalAmount = 0;
         for(const item in cartItems){   
             if(cartItems[item] > 0){
-                let itemInfo = combinedFoodList.find((product)=> product._id===item || product.name === item);
+                let itemInfo = combinedItemList.find((product)=> product._id===item || product.name === item);
 
                 if(!itemInfo){
                     continue;
@@ -65,10 +53,16 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
-    // fetching the food list from the databse and not from the assets folder.
-    const fetchFoodList = async () => {
-        const response = await axios.get(url+"/api/food/list");
-        setApiFoodList(response.data.data);
+    // fetching the item list from the databse and not from the assets folder.
+    const fetchItemList = async () => {
+        try {
+            const response = await axios.get(url+"/api/item/list");
+            const { data } = response.data || {};
+            setApiItemList(Array.isArray(data) ? data : []);
+        } catch (error) {
+            console.error("Failed to fetch items list", error);
+            setApiItemList([]);
+        }
     }
 
     const loadCartData = async (token) => {
@@ -78,7 +72,7 @@ const StoreContextProvider = (props) => {
 
     useEffect(() => {
         async function loadData() {
-            fetchFoodList();
+            fetchItemList();
             if(localStorage.getItem("token")){
                 setToken(localStorage.getItem("token"));
                 await loadCartData(localStorage.getItem("token"));
@@ -88,7 +82,7 @@ const StoreContextProvider = (props) => {
     },[])
 
     const ContextValue = {
-        food_list: combinedFoodList,
+        item_list: combinedItemList,
         cartItems,
         setCartItems,
         addToCart,

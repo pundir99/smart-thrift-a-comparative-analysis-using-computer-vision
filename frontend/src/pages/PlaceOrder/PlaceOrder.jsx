@@ -7,7 +7,7 @@ import axios from 'axios';
 const PlaceOrder = () => {
   
   const navigate = useNavigate();
-  const {getTotalCartAmount, token, cartItems, food_list, url} = useContext(StoreContext)
+  const {getTotalCartAmount, token, cartItems, item_list, url} = useContext(StoreContext)
 
   const [data, setData] = useState({
     firstName:"",
@@ -30,7 +30,7 @@ const PlaceOrder = () => {
   const placeOrder = async(event) => {
     event.preventDefault();
     let orderItems = [];
-    food_list.map((item) => {
+    item_list.map((item) => {
       if(cartItems[item._id]>0){
         let itemInfo = item;      // item ek object h.
         itemInfo["quantity"] = cartItems[item._id];

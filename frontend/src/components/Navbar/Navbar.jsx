@@ -8,7 +8,7 @@ const Navbar = ({setShowLogin}) => {
 
     const navigate = useNavigate();
     const [menu, setMenu] = useState("Home");
-    const {getTotalCartAmount, token, setToken, searchQuery, setSearchQuery, food_list} = useContext(StoreContext)
+    const {getTotalCartAmount, token, setToken, searchQuery, setSearchQuery, item_list} = useContext(StoreContext)
     const [isSearchFocused, setIsSearchFocused] = useState(false)
     const blurTimeoutRef = useRef(null)
 
@@ -28,7 +28,7 @@ const Navbar = ({setShowLogin}) => {
 
       const seen = new Set()
 
-      return food_list.reduce((acc, item) => {
+      return item_list.reduce((acc, item) => {
         const key = item._id || item.name
         if (seen.has(key)) {
           return acc
@@ -51,7 +51,7 @@ const Navbar = ({setShowLogin}) => {
 
         return acc
       }, []).slice(0, 6)
-    }, [food_list, normalizedSearch])
+    }, [item_list, normalizedSearch])
 
     const Logout = () => {
       localStorage.removeItem("token");
@@ -67,7 +67,7 @@ const Navbar = ({setShowLogin}) => {
     const handleSuggestionSelect = (suggestion) => {
       setSearchQuery(suggestion.name || '')
       setIsSearchFocused(false)
-      const displayElement = document.getElementById('food-display')
+      const displayElement = document.getElementById('item-display')
       if (displayElement) {
         displayElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
