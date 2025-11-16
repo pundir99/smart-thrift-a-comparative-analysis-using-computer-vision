@@ -70,6 +70,20 @@ const StoreContextProvider = (props) => {
         setCartItems(response.data.cartData);
     }
 
+    // Get ML-based recommendations for an item
+    const getRecommendations = async (itemId) => {
+        try {
+            const response = await axios.get(`${url}/api/item/${itemId}/recommendations`);
+            if (response.data.success) {
+                return response.data.data || [];
+            }
+            return [];
+        } catch (error) {
+            console.error("Failed to fetch recommendations", error);
+            return [];
+        }
+    }
+
     useEffect(() => {
         async function loadData() {
             fetchItemList();
@@ -92,7 +106,8 @@ const StoreContextProvider = (props) => {
         token,
         setToken,
         searchQuery,
-        setSearchQuery
+        setSearchQuery,
+        getRecommendations
     }
 
     return(
