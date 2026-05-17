@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tomato E-Commerce
 
 **Tomato E-Commerce** is a web-based platform designed for selling food and other items to users. It provides a seamless user experience with features like order cancellation, secure payments, and a user-friendly interface.
@@ -90,3 +91,6 @@ E-commerce-Tomato/
 ├── frontend/       # Frontend code
 ├── README.md       # Project documentation
 ```
+=======
+# SMART-THRIFT-A-COMPARATIVE-ANALYSIS-USING-COMPUTER-VISION
+>>>>>>> 99295ecf8da43b6a499b85ecda54c2afbc9e91eb
