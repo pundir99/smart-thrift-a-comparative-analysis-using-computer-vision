@@ -10,10 +10,10 @@ from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 
 # 1. Load precomputed embeddings and filenames
-feature_list = np.array(pickle.load(open("ml-service\embeddings.pkl", "rb")))
+feature_list = np.array(pickle.load(open("ml-service/embeddings.pkl", "rb")))
 filenames = pickle.load(open("ml-service/filenames.pkl", "rb"))
 
-# 2. Build feature-extractor model (same as you used to create embeddings)
+#2. Build feature-extractor model (same as you used to create embeddings)
 base_model = ResNet50(weights="imagenet", include_top=False, input_shape=(224, 224, 3))
 base_model.trainable = False
 
